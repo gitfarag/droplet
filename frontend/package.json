@@ -1,34 +1,24 @@
 {
-  "name": "frontend",
+  "name": "portfolio-resume",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "netlify deploy --dir=./dist -p -m 'git log -1 --pretty=%B'"
   },
   "dependencies": {
-    "@chakra-ui/react": "2.8.2",
-    "@emotion/react": "11.11.4",
-    "@emotion/styled": "11.11.5",
-    "@tanstack/react-query": "5.36.0",
-    "@tanstack/react-query-devtools": "5.36.0",
-    "axios": "1.6.8",
-    "framer-motion": "11.1.9",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-router-dom": "6.23.1"
+    "@tabler/icons-vue": "^3.10.0",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.2",
+    "vue3-carousel": "^0.3.3"
   },
   "devDependencies": {
-    "@types/react": "18.2.66",
-    "@types/react-dom": "18.2.22",
-    "@vitejs/plugin-react": "4.2.1",
-    "eslint": "8.57.0",
-    "eslint-plugin-react": "7.34.1",
-    "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-react-refresh": "0.4.6",
-    "vite": "5.2.0"
+    "@vitejs/plugin-vue": "^5.0.4",
+    "netlify-cli": "^17.26.3",
+    "sass": "^1.77.4",
+    "vite": "^5.2.0"
   }
 }

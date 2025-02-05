@@ -1,5 +1,6 @@
 <template>
-  <RouterView />
+  <!-- <RouterView /> -->
+   <h1>front end</h1>
 </template>
 
 <style scoped>

@@ -18,6 +18,7 @@ import { TranslatedNamesModule } from './modules/translated-names/translated-nam
 import { CitiesModule } from './modules/cities/cities.module';
 import { AddressesModule } from './modules/addresses/addresses.module';
 import { AgenciesModule } from './modules/agencies/agencies.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { AgenciesModule } from './modules/agencies/agencies.module';
     AddressesModule,
     AgenciesModule
   ],
+  controllers: [AppController],
   providers: [AppService, {
     provide: 'APP_INTERCEPTOR',
     useClass: CacheInterceptor,

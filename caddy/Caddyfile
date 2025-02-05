@@ -7,8 +7,9 @@
 
 dashboard.{$DOMAIN_NAME:domain.invalid} {
     encode gzip
-	reverse_proxy frontend:80
+	reverse_proxy dashboard:80
 }
+
 www.{$DOMAIN_NAME:domain.invalid} {
     redir https://{$DOMAIN_NAME}{uri} permanent
 }

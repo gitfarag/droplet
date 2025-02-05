@@ -7,6 +7,6 @@ export class AppController {
 
   @Get()
   getHello(): string {
-    throw new BadRequestException('koko a7a')
+    throw new BadRequestException('koko kali is here')
   }
 }

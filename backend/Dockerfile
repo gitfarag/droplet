@@ -11,7 +11,7 @@ COPY . .
 
 RUN npm run build
 
-CMD ["npm", "run", "start:prod"]
+CMD ["npm", "run", "start:dev"]
 
 # Production stage
 FROM node:18-bookworm-slim as production
@@ -24,4 +24,4 @@ RUN npm ci --only=production
 
 COPY --from=development /app/dist ./dist
 
-CMD ["node", "dist/index.js"]
+CMD ["node", "dist/main"]

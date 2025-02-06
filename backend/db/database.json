@@ -1,7 +1,7 @@
 {
   "development": {
     "dialect": "mysql",
-    "host": "mysql",
+    "host": "localhost",
     "port": 3306,
     "username": "root",
     "password": "TryCar@2024",
@@ -21,7 +21,7 @@
     "username": "root",
     "password": "TryCar@2024",
     "database": "database_production",
-    "host": "127.0.0.1",
+    "host": "mysql",
     "dialect": "mysql"
   }
 }

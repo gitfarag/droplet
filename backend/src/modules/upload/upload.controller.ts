@@ -9,6 +9,7 @@ import { JwtGuard } from 'src/guards/jwt.guard';
 import { createReadStream } from 'fs';
 import { join } from 'path';
 import { RolesGuard } from 'src/guards/roles.guard';
+import { diskStorage } from 'multer';
 
 @Controller(AppConstants.BASICURL+'upload')
 @UseGuards(JwtGuard, RolesGuard)
@@ -18,12 +19,17 @@ export class UploadController extends BaseController{
   }
 
   @Post()
-  @UseInterceptors(FileFieldsInterceptor([
-    { name: 'file1', maxCount: 1 },
-    { name: 'file2', maxCount: 1 },
-  ]))
-  uploadFile(@UploadedFiles() files: { file1?: Express.Multer.File[], file2?: Express.Multer.File[] }) {
-      console.log(files.file1[0].buffer);
+  @UseInterceptors(FileInterceptor('file', {
+    storage: diskStorage({
+      filename: (req, file, cb) => {
+        cb(null, file.originalname);
+      },
+    }),
+  }))
+  async uploadFile(@UploadedFile() file: Express.Multer.File) {
+    // return files
+      let res = await this.uploadService.create(file);
+      return res
   }
 
   @Get('file')

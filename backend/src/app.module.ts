@@ -20,6 +20,7 @@ import { AddressesModule } from './modules/addresses/addresses.module';
 import { AgenciesModule } from './modules/agencies/agencies.module';
 import { AppController } from './app.controller';
 import { MailerModule } from './utils/mailer/mailer.module';
+import { MigrationModuleModule } from './utils/migration-module/migration-module.module';
 
 @Module({
   imports: [
@@ -43,7 +44,8 @@ import { MailerModule } from './utils/mailer/mailer.module';
     CitiesModule,
     AddressesModule,
     AgenciesModule,
-    MailerModule
+    MailerModule,
+    MigrationModuleModule
   ],
   controllers: [AppController],
   providers: [AppService, {

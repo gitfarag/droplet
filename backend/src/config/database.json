@@ -1,0 +1,31 @@
+{
+  "development": {
+    "dialect": "mysql",
+    "host": "64.23.254.243",
+    "port": 3306,
+    "username": "root",
+    "password": "TryCar@2024",
+    "database": "nestCrash",
+    "autoLoadModels": true,
+    "synchronize": true,
+    "retryAttempts": 2
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "dialect": "mysql",
+    "host": "mysql",
+    "port": 3306,
+    "username": "myuser",
+    "password": "mypassword",
+    "database": "nestCrash",
+    "autoLoadModels": true,
+    "synchronize": true,
+    "retryAttempts": 2
+  }
+}

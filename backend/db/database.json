@@ -3,8 +3,8 @@
     "dialect": "mysql",
     "host": "mysql",
     "port": 3306,
-    "username": "root",
-    "password": "TryCar@2024",
+    "username": "myuser",
+    "password": "mypassword",
     "database": "nestCrash",
     "autoLoadModels": true,
     "synchronize": true,
@@ -18,10 +18,14 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "TryCar@2024",
-    "database": "database_production",
+    "dialect": "mysql",
     "host": "mysql",
-    "dialect": "mysql"
+    "port": 3306,
+    "username": "myuser",
+    "password": "mypassword",
+    "database": "nestCrash",
+    "autoLoadModels": true,
+    "synchronize": true,
+    "retryAttempts": 2
   }
 }

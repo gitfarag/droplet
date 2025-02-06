@@ -8,8 +8,8 @@ import {
 import { TranslatedNames } from './translatedNames';
 import { Addresses } from './adresses.model';
 import { DataTypes } from 'sequelize';
-import { AgencyStatus } from '../ENUMS/status.enum';
-import { AgencyTypes } from '../ENUMS/agencyTypes.enum';
+import { AgencyStatus } from '../../config/ENUMS/status.enum';
+import { AgencyTypes } from '../../config/ENUMS/agencyTypes.enum';
 
 @Table
 export class Agency extends Model {

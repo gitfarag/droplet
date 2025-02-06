@@ -1,7 +1,7 @@
 import { Exclude, Transform, Type } from 'class-transformer';
 import { IsInstance, IsString, ValidateNested } from 'class-validator';
-import { AgencyTypes } from 'src/database/ENUMS/agencyTypes.enum';
-import { AgencyStatus } from 'src/database/ENUMS/status.enum';
+import { AgencyTypes } from 'src/config/ENUMS/agencyTypes.enum';
+import { AgencyStatus } from 'src/config/ENUMS/status.enum';
 import { Addresses } from 'src/database/models/adresses.model';
 import { Agency } from 'src/database/models/agency.model';
 import { TranslatedNames } from 'src/database/models/translatedNames';

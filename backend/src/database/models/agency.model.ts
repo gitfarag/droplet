@@ -8,7 +8,7 @@ import {
 import { TranslatedNames } from './translatedNames';
 import { Addresses } from './adresses.model';
 import { DataTypes } from 'sequelize';
-import { AgencyStatus } from 'db/ENUMS/status.enum';
+import { AgencyStatus } from '../ENUMS/status.enum';
 import { AgencyTypes } from '../ENUMS/agencyTypes.enum';
 
 @Table

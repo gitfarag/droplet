@@ -4,7 +4,7 @@ require('dotenv').config();
 
 // lzoom el shoghl
 const bcrypt = require('bcrypt');
-const saltRounds = parseInt(process.env.SALT, 10); // Use the SALT_ROUNDS from the .env file
+const saltRounds = parseInt(process.env.SALT); // Use the SALT_ROUNDS from the .env file
 const defaultPassword = process.env.DEFAULT_PASSWORD;
 const userName = process.env.DEFAULT_USERNAME;
 

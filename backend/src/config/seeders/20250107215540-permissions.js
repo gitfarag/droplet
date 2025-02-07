@@ -101,6 +101,14 @@ module.exports = {
       can_update: true,
       can_delete: true,
     },
+    {
+      role_id: 1,
+      route_id: 12,
+      can_create: true,
+      can_read: true,
+      can_update: true,
+      can_delete: true,
+    },
    ]);
   },
 

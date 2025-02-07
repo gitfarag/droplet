@@ -57,6 +57,10 @@ module.exports = {
         route: '/upload',
         name: 'Upload',
       },
+      {
+        route: '/mailer',
+        name: 'Mailer',
+      },
     ]);
   },
 

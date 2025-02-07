@@ -53,3 +53,7 @@ api.{$DOMAIN_NAME:domain.invalid} {
         }
     }
 }
+
+jenkins.{$DOMAIN_NAME:domain.invalid} {
+  reverse_proxy jenkins:8080  # Forward requests to Jenkins container
+}

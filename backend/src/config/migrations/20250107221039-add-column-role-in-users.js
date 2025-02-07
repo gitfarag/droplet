@@ -12,7 +12,7 @@ module.exports = {
     await queryInterface.addColumn('Users', 'role_id', {
       type: Sequelize.INTEGER,
       references: {
-        model: 'roles',
+        model: 'Roles',
         key: 'id'
       }
     });
@@ -25,5 +25,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
+    await queryInterface.removeColumn('Users', 'role_id');
   }
 };

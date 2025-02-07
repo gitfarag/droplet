@@ -9,7 +9,7 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-  await queryInterface.createTable('permissions', {
+  await queryInterface.createTable('Permissions', {
     id: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -18,14 +18,14 @@ module.exports = {
     role_id: {
       type: Sequelize.INTEGER,
       references: {
-        model: 'roles',
+        model: 'Roles',
         key: 'id'
       },
     },
     route_id: {
       type: Sequelize.INTEGER,
       references: {
-        model: 'sysRoutes',
+        model: 'SysRoutes',
         key: 'id'
       }
     },
@@ -64,6 +64,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.dropTable('permissions')
+    await queryInterface.dropTable('Permissions')
   }
 };

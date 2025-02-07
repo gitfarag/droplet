@@ -12,7 +12,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
      */
-    await queryInterface.bulkInsert('sysRoutes', [
+    await queryInterface.bulkInsert('SysRoutes', [
       {
         route: '/users',
         name: 'Users',
@@ -67,6 +67,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('sysRoutes', null, {});
+    await queryInterface.bulkDelete('SysRoutes', null, {});
   },
 };

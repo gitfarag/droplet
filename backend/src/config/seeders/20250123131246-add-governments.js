@@ -40,12 +40,12 @@ module.exports = {
       { ar: 'شمال سيناء', en: 'North Sinai' },
     ];
 
-    await queryInterface.bulkInsert('translatedNames', translatedNames, {
+    await queryInterface.bulkInsert('TranslatedNames', translatedNames, {
       returning: true,
     });
 
     let insertedRows = await queryInterface.sequelize.query(
-      `SELECT * FROM translatedNames WHERE en IN (:enValues)`,
+      `SELECT * FROM TranslatedNames WHERE en IN (:enValues)`,
       {
         type: Sequelize.QueryTypes.SELECT,
         replacements: {
@@ -58,7 +58,7 @@ module.exports = {
     
     const governments = insertedRows.map((name) => ({ nameId: name.id }));
 
-    await queryInterface.bulkInsert('governments', governments, {});
+    await queryInterface.bulkInsert('Governments', governments, {});
   },
 
   async down(queryInterface, Sequelize) {
@@ -68,7 +68,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('governments', null, {});
+    await queryInterface.bulkDelete('Governments', null, {});
     // await queryInterface.bulkDelete('translatedNames', null, {});
 
   },

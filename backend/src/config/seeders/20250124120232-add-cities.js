@@ -43,13 +43,13 @@ module.exports = {
       { en: 'New Damietta', ar: 'دمياط الجديدة' },
       { en: 'New Ismailia', ar: 'الإسماعيلية الجديدة' },
     ];
-    await queryInterface.bulkInsert('translatedNames', cities, {returning: true});
+    await queryInterface.bulkInsert('TranslatedNames', cities, {returning: true});
     let insertedRows = await queryInterface.sequelize.query(
-      `SELECT * FROM translatedNames ORDER BY id ASC LIMIT 1000 OFFSET 25`
+      `SELECT * FROM TranslatedNames ORDER BY id ASC LIMIT 1000 OFFSET 25`
     )
     console.log(insertedRows[0])
     let insertedCities = insertedRows[0].map((name)=>({nameId: name.id}))
-    await queryInterface.bulkInsert('cities', insertedCities, {});
+    await queryInterface.bulkInsert('Cities', insertedCities, {});
   },
 
   async down (queryInterface, Sequelize) {
@@ -60,5 +60,6 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     // await queryInterface.bulkDelete('translatedNames', null,{});
+    await queryInterface.bulkDelete('Cities', null, {});
   }
 };

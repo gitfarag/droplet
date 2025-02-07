@@ -9,8 +9,6 @@ RUN npm ci
 
 COPY . .
 
-RUN npm run migrate:seed
-
 RUN npm run build
 
 CMD ["npm", "run", "start:dev"]

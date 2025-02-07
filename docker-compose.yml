@@ -20,6 +20,8 @@ services:
     ports:
       - "8080:8080"  # Jenkins UI port
       - "50000:50000"  # For agent connections
+    networks:
+      - mern-app
     volumes:
       - jenkins_home:/var/jenkins_home  # Persist Jenkins data
 

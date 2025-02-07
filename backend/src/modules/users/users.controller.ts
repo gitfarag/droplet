@@ -22,7 +22,7 @@ import { RolesGuard } from 'src/guards/roles.guard';
 import { UserDto } from './dto/users.dto';
 import { Users } from 'src/utils/modelCtor';
 
-// @UseGuards(JwtGuard, RolesGuard)
+@UseGuards(JwtGuard, RolesGuard)
 @Controller(AppConstants.BASICURL + 'users')
 export class UsersController extends BaseController {
   constructor(private readonly usersService: UsersService) {

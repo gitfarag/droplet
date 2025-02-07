@@ -8,9 +8,8 @@ import { JwtGuard } from 'src/guards/jwt.guard';
 
 @Controller(AppConstants.BASICURL+'api-key')
 @UseGuards(JwtGuard, RolesGuard)
-export class ApiKeyController extends BaseController {
+export class ApiKeyController{
   constructor(private readonly apiKeyService: ApiKeyService) {
-    super()
   }
 
   @Post()

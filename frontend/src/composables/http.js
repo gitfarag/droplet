@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const $fetcher = axios.create({
-  baseURL: import.meta.env.VITE_APP_API_URL,
+  baseURL: String(import.meta.env.VITE_APP_API_URL),
   headers: {
-    'my-api-key': import.meta.env.VITE_APP_MY_API_KEY,
+    'my-api-key': String(import.meta.env.VITE_APP_MY_API_KEY),
     "Access-Control-Allow-Methods": "GET,HEAD,PATCH,POST,PUT",
     'lang': localStorage.getItem('locale') || 'ar'
   }

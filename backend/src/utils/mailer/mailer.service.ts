@@ -49,6 +49,32 @@ export class MailerService {
     }
   }
 
+  async tempMail(from, name, message, subject){
+    const mailOptions = {
+      from: 'tech@ahmedfarag.info', // Sender address
+      to: 'tech@ahmedfarag.info', // Recipient address
+      subject: `Website - message from ${name}`, // Subject
+      html: `
+      <h4> ${subject}</h4>
+      <p>I'm ${name},</p>
+      <p>${message}</p>
+      <p>Best regards,</p>
+      <div class=""signature>
+      <p>Email: ${from}</p>
+      </div>
+    `, // Plain text body
+    };
+
+    try {
+      const info = await this.transporter.sendMail(mailOptions);
+      console.log('Message sent: %s', info.messageId);
+      return info;
+    } catch (error) {
+      console.error('Error sending email:', error);
+      throw error;
+    }
+  }
+
   findAll() {
     return `This action returns all mailer`;
   }

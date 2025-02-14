@@ -68,6 +68,7 @@
             "en": {"name": "Udacity"}
         }
     },
+
     "mansoura_university": {
         "logoUrl": "images/places/mu.jpg",
         "faIcon": "fa fa-house-laptop",
@@ -81,6 +82,49 @@
         "faIcon": "fas fa-paint-brush",
         "locales": {
             "en": {"name": "UX Masters Studio"}
+        }
+    },
+
+    "trycar": {
+        "logoUrl": "images/places/trycar.png",
+        "faIcon": "fa fa-house-laptop",
+        "locales": {
+            "en": {"name": "TryCar"}
+        }
+    },    
+    "pointblank": {
+        "logoUrl": "images/places/pbc.jpeg",
+        "faIcon": "fa fa-house-laptop",
+        "locales": {
+            "en": {"name": "Pbc"}
+        }
+    },
+    "mostaql": {
+        "logoUrl": "images/places/mostaql.png",
+        "faIcon": "fa fa-house-laptop",
+        "locales": {
+            "en": {"name": "Mostaql"}
+        }
+    },
+    "upwork": {
+        "logoUrl": "images/places/upwork.png",
+        "faIcon": "fa fa-house-laptop",
+        "locales": {
+            "en": {"name": "Upwork"}
+        }
+    },
+    "easyapply": {
+        "logoUrl": "images/places/ea.jpg",
+        "faIcon": "fa fa-house-laptop",
+        "locales": {
+            "en": {"name": "Easyapply"}
+        }
+    },
+    "dphish": {
+        "logoUrl": "images/places/dphish",
+        "faIcon": "fa fa-house-laptop",
+        "locales": {
+            "en": {"name": "dPhish"}
         }
     }
 }

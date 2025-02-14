@@ -28,7 +28,7 @@
         "address": {
             "id": "address",
             "value": "4 barakat Street, Cairo, CA 4",
-            "valueShort": "Helmeyat al zaytoon, CA 4",
+            "valueShort": "Helmeyat al zaytoon, Cairo",
             "faIcon": "fa-solid fa-city",
             "href": null
         },
@@ -43,18 +43,18 @@
 
         "facebook": {
             "id": "facebook",
-            "value": "Jonas Einstein",
-            "valueShort": "J. Einstein",
+            "value": "ahmed farag",
+            "valueShort": "A. Farag",
             "faIcon": "fa-brands fa-facebook",
             "href": "#"
         },
 
         "github": {
             "id": "github",
-            "value": "@jonas.einstein.official",
-            "valueShort": "@jonas.einstein.official",
+            "value": "@gitfarag",
+            "valueShort": "@gitfarag",
             "faIcon": "fa-brands fa-github",
-            "href": "#"
+            "href": "https://github.com/gitfarag"
         },
 
         "instagram": {
@@ -67,10 +67,10 @@
 
         "linkedin": {
             "id": "linkedin",
-            "value": "@jonas.einstein.official",
-            "valueShort": "@jonas.einstein.official",
+            "value": "@ahmedfraj",
+            "valueShort": "@ahmedfarag",
             "faIcon": "fa-brands fa-linkedin",
-            "href": "#"
+            "href": "https://www.linkedin.com/in/ahmdfraj/"
         },
 
         "phone": {

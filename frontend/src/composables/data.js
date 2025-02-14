@@ -277,7 +277,7 @@ export function useData() {
      * @private
      */
     const _updateLocalization = () => {
-        const currentLanguageId = language.getSelectedLanguage()['id']
+        const currentLanguageId = 'en'
         if(!_localizationsCache[currentLanguageId]) {
             _localizationsCache[currentLanguageId] = _cacheLocalization(_jsonData, currentLanguageId)
         }

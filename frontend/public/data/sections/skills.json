@@ -193,12 +193,12 @@
             },
             {
                 "imageIconUrl": null,
-                "faIcon": "fas fa-expand-arrows-alt",
+                "faIcon": "fa-brands fa-jira",
                 "value": null,
                 "locales": {
                     "en": {
                         "title": "Scrum Master",
-                        "description": "Proficient in creating intuitive and seamless interactions for user-friendly experiences, harmonizing aesthetics and usability."
+                        "description": "ensuring efficient delivery of projects, and driving continuous improvement."
                     },
                     "es": {
                         "title": "Diseño de Interacción",
@@ -221,7 +221,7 @@
                 "locales": {
                     "en": {
                         "title": "Software Archticture",
-                        "description": "Skilled in translating concepts into interactive prototypes for testing and refinement."
+                        "description": "designing scalable, high-performance software solutions, driving system architecture decisions, and leading cross-functional teams to deliver robust applications."
                     },
                     "es": {
                         "title": "Prototipado",
@@ -333,7 +333,7 @@
             },
             {
                 "imageIconUrl": null,
-                "faIcon": "fab fa-server",
+                "faIcon": "fa-solid fa-server",
                 "value": 70,
                 "locales": {
                     "en": {
@@ -356,7 +356,7 @@
             },
             {
                 "imageIconUrl": null,
-                "faIcon": "fab fa-server",
+                "faIcon": "fa-solid fa-server",
                 "value": 70,
                 "locales": {
                     "en": {
@@ -472,7 +472,7 @@
         ],
         "languages": [
             {
-                "imageIconUrl": "images/flags/en.png",
+                "imageIconUrl": "images/flags/ar.png",
                 "faIcon": null,
                 "value": 100,
                 "locales": {
@@ -525,8 +525,8 @@
                 "value": null,
                 "locales": {
                     "en": {
-                        "title": "User Interface (UI) Design",
-                        "description": "Able to design intuitive and visually appealing user interfaces for seamless user interactions."
+                        "title": "CI/CD",
+                        "description": " implementing CI/CD pipelines for automated software deployment using CircleCI and Jenkins."
                     },
                     "es": {
                         "title": "Diseño de Interfaz de Usuario (UI)",
@@ -548,8 +548,8 @@
                 "value": null,
                 "locales": {
                     "en": {
-                        "title": "Front-End Development",
-                        "description": "Able to code in VueJS, React JS, Swift, AngularJS and TypeScript."
+                        "title": "Docker",
+                        "description": "Able to optimizing containerized applications for scalability and performance."
                     },
                     "es": {
                         "title": "Desarrollo Front-End",
@@ -571,8 +571,8 @@
                 "value": null,
                 "locales": {
                     "en": {
-                        "title": "Information Visualization",
-                        "description": "Able to transform complex data into clear visuals."
+                        "title": "AWS Cloud Console",
+                        "description": " experience in AWS Cloud Console for managing and deploying scalable, cloud-based applications."
                     },
                     "es": {
                         "title": "Visualización de Información",
@@ -594,8 +594,8 @@
                 "value": null,
                 "locales": {
                     "en": {
-                        "title": "Accessibility and Inclusive Design",
-                        "description": "Able to create digital experiences that are accessible to all."
+                        "title": "ORM",
+                        "description": "Using Sequelize ORM for efficient database management, integration and migration with Node.js applications."
                     },
                     "es": {
                         "title": "Accesibilidad y Diseño Inclusivo",
@@ -608,52 +608,6 @@
                     "zh": {
                         "title": "可访问性和包容性设计",
                         "description": "能够创建面向所有人的数字体验。"
-                    }
-                }
-            },
-            {
-                "imageIconUrl": null,
-                "faIcon": null,
-                "value": null,
-                "locales": {
-                    "en": {
-                        "title": "User-Centric Data Analysis",
-                        "description": "Proficient in analyzing data with a focus on the needs and preferences of users, enabling data-driven decisions that align with user expectations."
-                    },
-                    "es": {
-                        "title": "Análisis de Datos Centrado en el Usuario",
-                        "description": "Competente en analizar datos con un enfoque en las necesidades y preferencias de los usuarios, lo que permite tomar decisiones basadas en datos que se alinean con las expectativas de los usuarios."
-                    },
-                    "fr": {
-                        "title": "Analyse de Données Axée sur l'Utilisateur",
-                        "description": "Compétent dans l'analyse de données axée sur les besoins et préférences des utilisateurs, permettant des décisions basées sur les données qui sont en accord avec les attentes des utilisateurs."
-                    },
-                    "zh": {
-                        "title": "以用户为中心的数据分析",
-                        "description": "熟练分析数据，专注于用户的需求和偏好，实现与用户期望相符的基于数据的决策。"
-                    }
-                }
-            },
-            {
-                "imageIconUrl": null,
-                "faIcon": null,
-                "value": null,
-                "locales": {
-                    "en": {
-                        "title": "Mobile App User Experience",
-                        "description": "Skilled in crafting user-centered experiences within mobile applications, ensuring smooth and intuitive interactions."
-                    },
-                    "es": {
-                        "title": "Experiencia de Usuario en Aplicaciones Móviles",
-                        "description": "Experto en crear experiencias centradas en el usuario en aplicaciones móviles, garantizando interacciones fluidas e intuitivas."
-                    },
-                    "fr": {
-                        "title": "Expérience Utilisateur d'Applications Mobiles",
-                        "description": "Compétent dans la création d'expériences centrées sur l'utilisateur au sein des applications mobiles, garantissant des interactions fluides et intuitives."
-                    },
-                    "zh": {
-                        "title": "移动应用用户体验",
-                        "description": "擅长在移动应用中打造以用户为中心的体验，确保流畅而直观的交互。"
                     }
                 }
             }

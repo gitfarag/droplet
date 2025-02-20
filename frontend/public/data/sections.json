@@ -39,19 +39,19 @@
         },
 
         {
-            "id": "education",
-            "categoryId": "background",
-            "component": "TimelineSection",
-            "jsonPath": "data/sections/education.json",
-            "faIcon": "fa-solid fa-graduation-cap"
-        },
-
-        {
             "id": "skills",
             "categoryId": "showcase",
             "component": "InfoSection",
             "jsonPath": "data/sections/skills.json",
             "faIcon": "fa-solid fa-tools"
+        },
+
+        {
+            "id": "education",
+            "categoryId": "background",
+            "component": "TimelineSection",
+            "jsonPath": "data/sections/education.json",
+            "faIcon": "fa-solid fa-graduation-cap"
         },
 
         {

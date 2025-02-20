@@ -26,7 +26,7 @@
         }
     ],
 
-    "preloaderEnabled": true,
+    "preloaderEnabled": false,
     "contactFormEnabled": true,
     "sidebarShrinkingEnabled": false
 }

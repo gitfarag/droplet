@@ -12,14 +12,14 @@
             <!-- Header (Highlighted Style) -->
             <div v-if="highlightedHeader" class="info-item-content-header-highlight mb-1">
                 <p class="info-item-title text-4 fw-bold text-normal mb-0">{{ item['locales']['title'] }}</p>
-                <span class="info-item-progress-span text-1 text-muted fw-bold">{{ item['formattedPercentage'] ?? '' }}</span>
+                <!-- <span class="info-item-progress-span text-1 text-muted fw-bold">{{ item['formattedPercentage'] ?? '' }}</span> -->
             </div>
 
             <!-- Header (Simplified Style) -->
             <div v-else class="info-item-content-header">
                 <p class="text-light-7 text-4 mb-0">
                     <strong>{{item['locales']['title']}}</strong>
-                    <span class="text-3" v-if="item['formattedPercentage']"> – {{item['formattedPercentage']}}</span>
+                    <!-- <span class="text-3" v-if="item['formattedPercentage']"> – {{item['formattedPercentage']}}</span> -->
                 </p>
             </div>
 
@@ -110,7 +110,7 @@ const _getItemFontAwesomeTextClass = (item) => {
 .info-item-icon {
     @include generate-dynamic-styles-with-hash((
         xxxl: (margin-right: 1rem),
-        lg:   (margin-right: 0.75rem)
+        lg:   (margin-right: 1rem)
     ))
 }
 

@@ -30,6 +30,13 @@
             "faIcon": "fa-solid fa-address-card",
             "cover": true
         },
+        {
+            "id": "experience",
+            "categoryId": "background",
+            "component": "TimelineSection",
+            "jsonPath": "data/sections/experience.json",
+            "faIcon": "fa-solid fa-briefcase"
+        },
 
         {
             "id": "education",
@@ -48,14 +55,6 @@
         },
 
         {
-            "id": "experience",
-            "categoryId": "background",
-            "component": "TimelineSection",
-            "jsonPath": "data/sections/experience.json",
-            "faIcon": "fa-solid fa-briefcase"
-        },
-
-        {
             "id": "hobbies",
             "categoryId": "more",
             "component": "InfoSection",
@@ -68,7 +67,7 @@
             "categoryId": "more",
             "component": "ContactSection",
             "jsonPath": "data/sections/contact.json",
-            "faIcon": "fa-solid fa-pen-to-square"
+            "faIcon": "fa-solid fa-message"
         }
     ]
 }

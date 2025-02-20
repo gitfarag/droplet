@@ -1,14 +1,14 @@
 <template>
     <div class="progress-bar-wrapper">
         <!-- Bootstrap Progress -->
-        <div class="progress">
+        <!-- <div class="progress">
             <div class="progress-bar"
                  role="progressbar"
                  :style="style"
                  :aria-valuenow="percentage"
                  aria-valuemin="0"
                  aria-valuemax="100"/>
-        </div>
+        </div> -->
 
         <!-- ProgressBar Description -->
         <div class="progress-description">

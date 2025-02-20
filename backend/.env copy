@@ -1,8 +1,0 @@
-APP_PORT = 3000
-MYSQL_HOST = localhost
-MYSQL_USER = root
-MYSQL_PASSWORD = TryCar@2024
-MYSQL_DATABASE = nestCrash
-MYSQL_PORT = 3306
-SALT = 10
-JWT_SECRET = holamadrid

@@ -8,6 +8,12 @@ www.{$DOMAIN_NAME:domain.invalid} {
 
 jenkins.{$DOMAIN_NAME:domain.invalid} {
     reverse_proxy jenkins:8080  # Forward requests to Jenkins container
+    header {
+        Strict-Transport-Security "max-age=31536000"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        X-XSS-Protection "1; mode=block"
+    }
 }
 
 api.{$DOMAIN_NAME:domain.invalid} {

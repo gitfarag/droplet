@@ -13,6 +13,8 @@ jenkins.{$DOMAIN_NAME:domain.invalid} {
         X-Content-Type-Options "nosniff"
         X-Frame-Options "DENY"
         X-XSS-Protection "1; mode=block"
+        X-Forwarded-Proto {http.request.scheme}
+        X-Forwarded-Host {http.request.host}
     }
 }
 

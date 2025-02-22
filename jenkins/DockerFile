@@ -25,12 +25,7 @@ RUN apt-get update && apt-get install -y \
 # Add the Jenkins user to the docker group
 RUN usermod -aG docker jenkins
 
-# Set the working directory to the Jenkins home directory
-WORKDIR /var/jenkins_home/workspace
-
-# Copy the docker-compose.yml file to the container
-COPY docker-compose.yml .
-
+# Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 

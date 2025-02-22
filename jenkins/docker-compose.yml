@@ -1,14 +1,48 @@
 name: deployer
 services: 
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - "3306:3306" 
+    networks:
+      - jen-app
+    volumes:
+      - mysql_data:/var/lib/mysql 
+
+  api:
+    build:
+      context: ./api
+      target: production
+    restart: unless-stopped
+    env_file:
+      - ./api/.env
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - MYSQL_MIGRATION_HOST=${MYSQL_MIGRATION_HOST}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    networks:
+      - jen-app
+    depends_on:
+      - mysql
+
   frontend:
     build:
-      context: ./frontend
+      context: ./portfolio
       target: production
       args:
         VITE_API_URL: https://api.${DOMAIN_NAME}
     restart: unless-stopped
     networks:
       - jen-app
+      
+volumes:
+  mysql_data:
+    driver: local
 
 networks:
   jen-app:

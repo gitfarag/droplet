@@ -10,8 +10,8 @@ jenkins.{$DOMAIN_NAME:domain.invalid} {
         X-Forwarded-Host {http.request.host}
     }
 }
-wwww.${DOMAIN_NAME:domain.invalid} {
-    redirect https://dash.${DOMAIN_NAME}
+wwww.{$DOMAIN_NAME:domain.invalid} {
+    redir https://dash.{$DOMAIN_NAME}{uri} pernament
 }
 
 dash.{$DOMAIN_NAME:domain.invalid} {

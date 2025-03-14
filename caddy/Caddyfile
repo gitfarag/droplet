@@ -46,3 +46,18 @@ http://pipe-dev.{$DOMAIN_NAME:domain.invalid} {
         X-XSS-Protection "1; mode=block"
     }
 }
+
+pipe-dev.{$DOMAIN_NAME:domain.invalid} {
+    reverse_proxy jenkins:8080 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
+        header_up X-Forwarded-Host {host}
+    }
+    header {
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        X-XSS-Protection "1; mode=block"
+    }
+}

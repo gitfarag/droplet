@@ -1,17 +1,43 @@
-# Define Cloudflare's IPs as a match group
-@cloudflare {
-    remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
-    # (Include all Cloudflare IP ranges; you can find the full list here: https://www.cloudflare.com/ips/)
-}
-
 # dash-dev
 dash-dev.{$DOMAIN_NAME:domain.invalid} {
-    reverse_proxy frontend:80
+    # Define Cloudflare's IPs as a match group for dash-dev
+    @cloudflare_dash {
+        remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+    }
+    # Handle Cloudflare traffic over HTTP (don't redirect to HTTPS)
+    handle @cloudflare_dash {
+        reverse_proxy frontend:80
+    }
+
+    # Handle other traffic (non-Cloudflare) and force HTTPS
+    @no_https_redirect_dash {
+        not remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+    }
+
+    handle @no_https_redirect_dash {
+        redir https://{host}{uri}
+    }
 }
 
 # api
 api-dev.{$DOMAIN_NAME:domain.invalid} {
-    reverse_proxy api:4004
+    # Define Cloudflare's IPs as a match group for api-dev
+    @cloudflare_api {
+        remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+    }
+    # Handle Cloudflare traffic over HTTP (don't redirect to HTTPS)
+    handle @cloudflare_api {
+        reverse_proxy api:4004
+    }
+
+    # Handle other traffic (non-Cloudflare) and force HTTPS
+    @no_https_redirect_api {
+        not remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+    }
+
+    handle @no_https_redirect_api {
+        redir https://{host}{uri}
+    }
 
     header {
         -X-Powered-By
@@ -44,21 +70,28 @@ api-dev.{$DOMAIN_NAME:domain.invalid} {
             window 1s
         }
     }
-
-    # Don't force HTTPS for Cloudflare IPs (Flexible SSL mode)
-    @no_https_redirect {
-        not remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
-    }
-
-    handle @no_https_redirect {
-        # Only redirect non-Cloudflare traffic to HTTPS
-        redir https://{host}{uri}
-    }
 }
 
 # jenkins
 pipe-dev.{$DOMAIN_NAME:domain.invalid} {
-    reverse_proxy jenkins:8080  # Forward requests to Jenkins container
+    # Define Cloudflare's IPs as a match group for pipe-dev
+    @cloudflare_jenkins {
+        remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+    }
+    # Handle Cloudflare traffic over HTTP (don't redirect to HTTPS)
+    handle @cloudflare_jenkins {
+        reverse_proxy jenkins:8080
+    }
+
+    # Handle other traffic (non-Cloudflare) and force HTTPS
+    @no_https_redirect_jenkins {
+        not remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+    }
+
+    handle @no_https_redirect_jenkins {
+        redir https://{host}{uri}
+    }
+
     header {
         Strict-Transport-Security "max-age=31536000"
         X-Content-Type-Options "nosniff"
@@ -66,15 +99,5 @@ pipe-dev.{$DOMAIN_NAME:domain.invalid} {
         X-XSS-Protection "1; mode=block"
         X-Forwarded-Proto {http.request.scheme}
         X-Forwarded-Host {http.request.host}
-    }
-
-    # Don't force HTTPS for Cloudflare IPs (Flexible SSL mode)
-    @no_https_redirect_jenkins {
-        not remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
-    }
-
-    handle @no_https_redirect_jenkins {
-        # Only redirect non-Cloudflare traffic to HTTPS
-        redir https://{host}{uri}
     }
 }

@@ -6,7 +6,7 @@ http://dash-dev.{$DOMAIN_NAME:domain.invalid} {
 }
 
 # api-dev
-http://api-dev.{$DOMAIN_NAME:domain.invalid} {  
+http://rest-dev.{$DOMAIN_NAME:domain.invalid} {  
     reverse_proxy api:4004
     header {
         -X-Powered-By

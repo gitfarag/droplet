@@ -5,6 +5,7 @@ services:
     build: 
       context: ./jenkins
       dockerfile: DockerFile
+    container_name: jenkins
     ports:
     - "8080:8080"
     - "50000:50000"

@@ -1,12 +1,5 @@
 # Production Caddyfile
-{$DOMAIN_NAME:domain.invalid} {
-    redir https://dash.{$DOMAIN_NAME}{uri} permanent # Forward requests to Jenkins container
-}
-www.{$DOMAIN_NAME:domain.invalid} {
-    redir https://dash.{$DOMAIN_NAME}{uri} permanent
-}
-
-dash.{$DOMAIN_NAME:domain.invalid} {
+dash-dev.{$DOMAIN_NAME:domain.invalid} {
     reverse_proxy frontend:80
 }
 

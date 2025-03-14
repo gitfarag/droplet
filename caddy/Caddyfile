@@ -1,3 +1,4 @@
+# Caddy developent file easyapply
 # dash-dev
 http://dash-dev.{$DOMAIN_NAME:domain.invalid} {
     # http refirect
@@ -42,4 +43,3 @@ http://pipe-dev.{$DOMAIN_NAME:domain.invalid} {
         X-Forwarded-Host {http.request.host}
     }
 }
-

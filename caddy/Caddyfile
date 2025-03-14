@@ -1,5 +1,10 @@
-# Development Caddyfile
-# frontend
+# Define Cloudflare's IPs as a match group
+@cloudflare {
+    remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+    # (Include all Cloudflare IP ranges; you can find the full list here: https://www.cloudflare.com/ips/)
+}
+
+# dash-dev
 dash-dev.{$DOMAIN_NAME:domain.invalid} {
     reverse_proxy frontend:80
 }
@@ -28,20 +33,26 @@ api-dev.{$DOMAIN_NAME:domain.invalid} {
     rate_limit {
         # limit requests based on IP address
         zone api_limit {
-            # key {remote_host}
-            # if using Cloudflare proxy, use the following key:
             key {http.request.header.CF-Connecting-IP}
             events 100
             window 1m
         }
 
         zone burst_limit {
-            # key {remote_host}
-            # if using Cloudflare proxy, use the following key:
             key {http.request.header.CF-Connecting-IP}
             events 20
             window 1s
         }
+    }
+
+    # Don't force HTTPS for Cloudflare IPs (Flexible SSL mode)
+    @no_https_redirect {
+        not remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+    }
+
+    handle @no_https_redirect {
+        # Only redirect non-Cloudflare traffic to HTTPS
+        redir https://{host}{uri}
     }
 }
 
@@ -56,5 +67,14 @@ pipe-dev.{$DOMAIN_NAME:domain.invalid} {
         X-Forwarded-Proto {http.request.scheme}
         X-Forwarded-Host {http.request.host}
     }
-}
 
+    # Don't force HTTPS for Cloudflare IPs (Flexible SSL mode)
+    @no_https_redirect_jenkins {
+        not remote_ip 103.21.244.0/22 103.22.200.0/22 103.31.4.0/22 104.16.0.0/13 104.24.0.0/14 108.162.192.0/18 131.0.72.0/22 141.101.64.0/18 162.158.0.0/15 172.64.0.0/13 173.245.48.0/20 188.114.96.0/20 190.93.240.0/20 197.234.240.0/22 198.41.128.0/17
+    }
+
+    handle @no_https_redirect_jenkins {
+        # Only redirect non-Cloudflare traffic to HTTPS
+        redir https://{host}{uri}
+    }
+}

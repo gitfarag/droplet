@@ -1,52 +1,37 @@
 # Caddy developent file easyapply
 # dash-dev
-http://dash-dev.{$DOMAIN_NAME:domain.invalid} {
-    # http refirect
-    reverse_proxy frontend:80
-}
+# dash-dev.{$DOMAIN_NAME:domain.invalid} {
+#     # http refirect
+#     reverse_proxy frontend:80
+# }
 
-# api-dev
-http://rest-dev.{$DOMAIN_NAME:domain.invalid} {  
-    reverse_proxy api:4004
-    header {
-        -X-Powered-By
-        -Server
-        Strict-Transport-Security max-age=31536000;
-        X-Content-Type-Options nosniff
-        X-Frame-Options DENY
-        X-XSS-Protection "1; mode=block"
-    }
-    rate_limit {
-        zone api_limit {
-            key {http.request.header.CF-Connecting-IP}
-            events 100
-            window 1m
-        }
+# # api-dev
+# http://rest-dev.{$DOMAIN_NAME:domain.invalid} {  
+#     reverse_proxy api:4004
+#     header {
+#         -X-Powered-By
+#         -Server
+#         Strict-Transport-Security max-age=31536000;
+#         X-Content-Type-Options nosniff
+#         X-Frame-Options DENY
+#         X-XSS-Protection "1; mode=block"
+#     }
+#     rate_limit {
+#         zone api_limit {
+#             key {http.request.header.CF-Connecting-IP}
+#             events 100
+#             window 1m
+#         }
 
-        zone burst_limit {
-            key {http.request.header.CF-Connecting-IP}
-            events 20
-            window 1s
-        }
-    }
-}
+#         zone burst_limit {
+#             key {http.request.header.CF-Connecting-IP}
+#             events 20
+#             window 1s
+#         }
+#     }
+# }
 
 # pipe-dev (Jenkins)
-http://pipe-dev.{$DOMAIN_NAME:domain.invalid} {
-    reverse_proxy jenkins:8080 {
-        header_up Host {host}
-        header_up X-Real-IP {remote}
-        header_up X-Forwarded-For {remote}
-        header_up X-Forwarded-Proto {scheme}
-        header_up X-Forwarded-Host {host}
-    }
-    header {
-        X-Content-Type-Options "nosniff"
-        X-Frame-Options "DENY"
-        X-XSS-Protection "1; mode=block"
-    }
-}
-
 pipe-dev.{$DOMAIN_NAME:domain.invalid} {
     reverse_proxy jenkins:8080 {
         header_up Host {host}

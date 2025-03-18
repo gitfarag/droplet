@@ -1,19 +1,6 @@
 name: deployer
 
 services:
-  jenkins:
-    build: 
-      context: ./jenkins
-      dockerfile: DockerFile
-    ports:
-    - "8080:8080"
-    - "50000:50000"
-    networks:
-    - jen-app
-    volumes:
-    - jenkins_home:/var/jenkins_home
-    - /var/run/docker.sock:/var/run/docker.sock
-
   caddy:
     build:
       context: ./caddy
@@ -28,8 +15,21 @@ services:
       - caddy_config:/config
     networks:
       - jen-app
+
+  jenkins:
+    build: 
+      context: ./jenkins
+      dockerfile: DockerFile
+    ports:
+    - "8080:8080"
+    - "50000:50000"
+    networks:
+    - jen-app
+    volumes:
+    - jenkins_home:/var/jenkins_home
+    - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
-      - jenkins
+      - caddy
 
 volumes:
   caddy_data:

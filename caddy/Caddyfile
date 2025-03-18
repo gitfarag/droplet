@@ -2,7 +2,7 @@
 #dash-dev
 dashboard-dev.{$DOMAIN_NAME:domain.invalid} {
     # http refirect
-    reverse_proxy dashfrontend-dev:80
+    reverse_proxy frontend-dev:80
 }
 
 # api-dev
@@ -34,12 +34,12 @@ api-dev.{$DOMAIN_NAME:domain.invalid} {
 #dash-dev
 dashboard-staging.{$DOMAIN_NAME:domain.invalid} {
     # http refirect
-    reverse_proxy dashfrontend-dev:80
+    reverse_proxy frontend-staging:80
 }
 
 # api-dev
 api-staging.{$DOMAIN_NAME:domain.invalid} {  
-    reverse_proxy api-dev:9000
+    reverse_proxy api-staging:9000
     header {
         -X-Powered-By
         -Server

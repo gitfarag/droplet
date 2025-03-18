@@ -1,35 +1,67 @@
 # Caddy developent file easyapply
-# dash-dev
-# dash-dev.{$DOMAIN_NAME:domain.invalid} {
-#     # http refirect
-#     reverse_proxy frontend:80
-# }
+#dash-dev
+dashboard-dev.{$DOMAIN_NAME:domain.invalid} {
+    # http refirect
+    reverse_proxy dashfrontend-dev:80
+}
 
-# # api-dev
-# http://rest-dev.{$DOMAIN_NAME:domain.invalid} {  
-#     reverse_proxy api:4004
-#     header {
-#         -X-Powered-By
-#         -Server
-#         Strict-Transport-Security max-age=31536000;
-#         X-Content-Type-Options nosniff
-#         X-Frame-Options DENY
-#         X-XSS-Protection "1; mode=block"
-#     }
-#     rate_limit {
-#         zone api_limit {
-#             key {http.request.header.CF-Connecting-IP}
-#             events 100
-#             window 1m
-#         }
+# api-dev
+api-dev.{$DOMAIN_NAME:domain.invalid} {  
+    reverse_proxy api-dev:9000
+    header {
+        -X-Powered-By
+        -Server
+        Strict-Transport-Security max-age=31536000;
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        X-XSS-Protection "1; mode=block"
+    }
+    rate_limit {
+        zone api_limit {
+            key {http.request.header.CF-Connecting-IP}
+            events 100
+            window 1m
+        }
 
-#         zone burst_limit {
-#             key {http.request.header.CF-Connecting-IP}
-#             events 20
-#             window 1s
-#         }
-#     }
-# }
+        zone burst_limit {
+            key {http.request.header.CF-Connecting-IP}
+            events 20
+            window 1s
+        }
+    }
+}
+
+#dash-dev
+dashboard-staging.{$DOMAIN_NAME:domain.invalid} {
+    # http refirect
+    reverse_proxy dashfrontend-dev:80
+}
+
+# api-dev
+api-staging.{$DOMAIN_NAME:domain.invalid} {  
+    reverse_proxy api-dev:9000
+    header {
+        -X-Powered-By
+        -Server
+        Strict-Transport-Security max-age=31536000;
+        X-Content-Type-Options nosniff
+        X-Frame-Options DENY
+        X-XSS-Protection "1; mode=block"
+    }
+    rate_limit {
+        zone api_limit {
+            key {http.request.header.CF-Connecting-IP}
+            events 100
+            window 1m
+        }
+
+        zone burst_limit {
+            key {http.request.header.CF-Connecting-IP}
+            events 20
+            window 1s
+        }
+    }
+}
 
 # pipe-dev (Jenkins)
 pipe-dev.{$DOMAIN_NAME:domain.invalid} {

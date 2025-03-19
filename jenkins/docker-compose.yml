@@ -1,21 +1,22 @@
 name: deployer
 services: 
 # dev services
-  api-dev:
-    build:
-      context: ./api-dev
-      target: production
-    restart: unless-stopped
-    env_file:
-      - ./api-dev/.env
-    environment:
-      - NODE_ENV=${NODE_ENV}
-    networks:
-      - jen-app
+  # api-dev:
+  #   build:
+  #     context: ./api-dev
+  #     target: production
+  #   restart: unless-stopped
+  #   env_file:
+  #     - ./api-dev/.env
+  #   environment:
+  #     - NODE_ENV=${NODE_ENV}
+  #   networks:
+  #     - jen-app
 
   frontend-dev:
     build:
       context: ./dashboard-dev
+      dockerfile: DockerFile
       target: production
     restart: unless-stopped
     env_file:
@@ -23,27 +24,27 @@ services:
     networks:
       - jen-app
 # staging services
-  api-staging:
-    build:
-      context: ./api-staging
-      target: production
-    restart: unless-stopped
-    env_file:
-      - ./api-staging/.env
-    environment:
-      - NODE_ENV=${NODE_ENV}
-    networks:
-      - jen-app
+  # api-staging:
+  #   build:
+  #     context: ./api-staging
+  #     target: production
+  #   restart: unless-stopped
+  #   env_file:
+  #     - ./api-staging/.env
+  #   environment:
+  #     - NODE_ENV=${NODE_ENV}
+  #   networks:
+  #     - jen-app
 
-  frontend-staging:
-    build:
-      context: ./dashboard-staging
-      target: production
-    restart: unless-stopped
-    env_file:
-      - ./dashboard-staging/.env
-    networks:
-      - jen-app
+  # frontend-staging:
+  #   build:
+  #     context: ./dashboard-staging
+  #     target: production
+  #   restart: unless-stopped
+  #   env_file:
+  #     - ./dashboard-staging/.env
+  #   networks:
+  #     - jen-app
 
 networks:
   jen-app:

@@ -1,4 +1,4 @@
-# Caddy developent file easyapply
+# Caddy developent file easyapply and bsc
 #dash-dev
 dash-dev.{$DOMAIN_NAME:domain.invalid} {
     # http refirect
@@ -77,4 +77,10 @@ pipe-dev.{$DOMAIN_NAME:domain.invalid} {
         X-Content-Type-Options "nosniff"
         X-XSS-Protection "1; mode=block"
     }
+}
+
+# bsc school
+bsc.{$DOMAIN_NAME:domain.invalid} {
+    # http refirect
+    reverse_proxy bsc:80
 }

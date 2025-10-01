@@ -22,7 +22,7 @@ jenkins.{$DOMAIN_NAME:domain.invalid} {
     }
 }
 
-# api.{$DOMAIN_NAME:domain.invalid} {
+api.{$DOMAIN_NAME:domain.invalid} {
     reverse_proxy api:4004
 
     header {
